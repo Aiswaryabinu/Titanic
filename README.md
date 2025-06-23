@@ -1,23 +1,54 @@
-# Titanic
+Titanic Dataset Analysis
+
+This project performs an exploratory data analysis and preprocessing of the Titanic dataset.
+
+Overview
+
+The notebook covers the following steps:
+
+1. Loading and Initial Inspection: Reads the Titanic dataset and displays basic information and missing values.
+2. Handling Missing Values: Imputes missing values in the 'Age', 'Cabin', and 'Embarked' columns using appropriate strategies (mean for 'Age', mode for 'Cabin' and 'Embarked').
+3. Encoding Categorical Features: Applies Label Encoding to the 'Sex' and 'Embarked' columns.
+4. Normalization: Scales numerical features ('Age', 'Fare', 'PassengerId', 'Pclass', 'SibSp', 'Parch') using MinMaxScaler.
+5. Outlier Detection and Removal: Visualizes outliers using boxplots and removes outliers in numerical columns using the Z-score method with a threshold of 3.
+6. Visualization: Compares the distribution of numerical features before and after outlier removal using boxplots.
+
+Dependencies
+
+The project requires the following libraries:
+
+pandas
+scikit-learn
+matplotlib
+seaborn
+scipy
+numpy
+
+Dataset
+
+The dataset used is the "Titanic-Dataset.csv". It is expected to be in the same directory as the notebook or the path should be updated accordingly.
 
 
-This project involves exploring and preprocessing the Titanic Dataset  for potential machine learning modeling. The dataset contains information about passengers aboard the RMS Titanic, including whether they survived. 
+Overview
 
-    Loaded Dataset : Titanic-Dataset.csv
-    Viewed First 5 Rows : Using df.head()
-    Checked Data Info : Using df.info()  
-        Total of 891 entries 
-        12 columns , including both numerical and categorical data
-        Mixed data types (int64, float64, object)
-         
-    Checked Missing Values : Using df.isnull().sum()  
-        Age : 177 missing values  
-        Cabin : 687 missing values (high number)  
-        Embarked : 2 missing values
+1. Loading and Initial Inspection: Reads the Titanic dataset and displays basic information and missing values.
+   - Reason: To get a foundational understanding of the dataset's structure, column types, and the extent of missing data before proceeding with analysis or preprocessing.
 
-    Handle missing values in Age, Cabin, and Embarked.
-    Encode categorical variables like Sex and Embarked.
-    Normalize or scale numerical features.
-    Explore data visually using plots.
-    Prepare data for machine learning models (classification).
-     
+2. Handling Missing Values: Imputes missing values in the 'Age', 'Cabin', and 'Embarked' columns.
+   - Age: Filled with the mean of the 'Age' column.
+     - Reason: 'Age' is a numerical variable, and using the mean is a common strategy to fill missing numerical data while preserving the overall distribution as much as possible.
+   - Cabin and Embarked: Filled with the mode of their respective columns.
+     - Reason: 'Cabin' and 'Embarked' are categorical variables. The mode represents the most frequent category, which is a suitable approach for filling missing values in nominal data.
+
+3. Encoding Categorical Features: Applies Label Encoding to the 'Sex' and 'Embarked' columns.
+   - Reason: Machine learning algorithms typically require numerical input. Label Encoding converts categorical labels into numerical form, assigning a unique integer to each category. This is appropriate for nominal data where there is no inherent order between categories.
+
+4. Normalization: Scales numerical features ('Age', 'Fare', 'PassengerId', 'Pclass', 'SibSp', 'Parch') using MinMaxScaler.
+   - Reason: Normalization (specifically Min-Max Scaling) transforms features to a specific range (usually 0 to 1). This is important for many machine learning algorithms that are sensitive to the scale of the input features, ensuring that no single feature dominates due to its larger values.
+
+5. Outlier Detection and Removal: Visualizes outliers using boxplots and removes outliers in numerical columns using the Z-score method with a threshold of 3.
+   - Reason: Outliers can significantly skew statistical measures and impact the performance of some machine learning models. Boxplots provide a visual way to identify potential outliers. The Z-score method quantifies how far a data point is from the mean in terms of standard deviations. Removing points with a Z-score greater than 3 is a common practice to eliminate extreme values.
+
+6. Visualization: Compares the distribution of numerical features before and after outlier removal using boxplots.
+   - Reason: To visually assess the impact of outlier removal on the distribution and spread of the numerical data. This helps confirm whether the outlier removal process was effective.
+
