@@ -51,4 +51,24 @@ Overview
 
 6. Visualization: Compares the distribution of numerical features before and after outlier removal using boxplots.
    - Reason: To visually assess the impact of outlier removal on the distribution and spread of the numerical data. This helps confirm whether the outlier removal process was effective.
+  
+
+     Exploratory Data Analysis
+     
+1️⃣ Generated Summary Statistics
+
+    Calculated mean, median, standard deviation, and other descriptive statistics using df.describe() and df.median() on numerical columns like Age, Fare, SibSp, and Parch.
+    Ensured statistics were computed after removing outliers for accuracy.     
+     
+2️⃣ Created Histograms and Boxplots
+
+    Used histograms to visualize the distribution of Age and Fare.
+    Plotted boxplots to detect outliers and visualize spread.
+    Observed that Fare had high variability and outliers.
+
+3️⃣ Used Correlation Matrix
+
+    Applied df.corr() on numeric columns to find relationships between features.
+    Visualized correlations using Seaborn heatmap.
+    Found moderate correlation between Fare and Pclass, and weak correlation with survival features.
 
